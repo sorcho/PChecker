@@ -1,0 +1,25 @@
+table{
+    margin-top: 20px;
+    margin-left: 2px;
+    border: none;
+}
+
+th{
+    background-color: #04aa6d; 
+    color: #f2f2f2;
+    padding-right: 12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+td{
+    background-color: #333333;
+    text-align: center;
+    padding-right: 10px;
+    color: #f2f2f2;
+    width: auto;
+    height: auto;
+}
+.img{
+    width: 75px;
+    height: 75px;
+}
