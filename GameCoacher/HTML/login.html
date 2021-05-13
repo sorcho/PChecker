@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Accedi</title>
+    <link rel="stylesheet" href="../CSS/navbar.css" />
+    <link rel="stylesheet" href="../CSS/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../JS/script.js"></script>
+  </head>
+
+  <body>
+    <div class="header">
+      <h1>GameCoacher</h1>
+    </div>
+
+    <div class="topnav">
+      <a href="index.html"><i class="fa fa-home" aria-hidden="true"> Home</i></a>
+      <div class="dropdown">
+        <button class="dropbtn" onclick="tendina()"><i class="fa fa-gamepad" aria-hidden="true"> Giochi</i>
+          <i class="fa fa-caret-down"></i>
+        </button> 
+
+        <div class="dropdown-content" id="myDropdown">
+          <a href="#"><img src="../IMG/csgo.ico" width="20px" height="20px"> CS: GO</a>
+          <a href="#"><img src="../IMG/lol.ico" width="20px" height="20px"> League of Legends</a>
+          <a href="#"><img src="../IMG/valorant.ico" width="20px" height="20px"> Valorant</a>
+          <a href="#"><img src="../IMG/r6.ico" width="20px" height="20px"> Rainbow Six: Siege</a>
+        </div>
+      </div>
+      <a href="contatti.html"><i class="fa fa-envelope" aria-hidden="true"> Contatti</i></a>
+      <a class="active" style="position: absolute; right: 0" href=""><i class="fa fa-sign-in" aria-hidden="true"> Login</i></a>
+    </div>
+
+    <form method="POST" action="../PHP/login.php">
+      <center>
+        <br><label for="email"><b>Inserisci la mail</label></b><br>
+        <input type="email" id="email" name="email" placeholder="email@example.com" required>
+
+        <br><br><label for="password"><b>Inserisci la password</label></b><br>
+        <input type="password" id="password" name="password" placeholder="Password" required>
+
+        <br><br><input type="submit" value="Accedi"> 
+        
+        <br><br><p>Nuovo utente? <a href="register.html">Registrati ora!</a></p>
+      </center>
+    </form>
+
+    <a class="btnDM" onclick="darkMode()" href="#">
+      <img id="tt" src="../IMG/darkMode.png" width="50" height="50">
+    </a>
+  </body>
+</html>
