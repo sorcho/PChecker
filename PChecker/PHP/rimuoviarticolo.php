@@ -24,4 +24,3 @@ if ($count == 1) {
 
     header("Location: carrello.php");
 }
-?>

@@ -4,32 +4,34 @@ $conn = mysqli_connect("localhost", "root", "", "pchecker");
 ?>
 <!DOCTYPE html>
 <html lang="it">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../CSS/navbar.css" />
-    <link rel="stylesheet" href="../CSS/styles.css" />
-    <link rel="stylesheet" href="../CSS/prodotti.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <script src="../JS/script.js"></script>
-    <title>Prodotti</title>
-  </head>
-  <body>
-    <div class="topnav">
-      <a href="../PHP/index.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
-      <a class="active" href=""><i class="fa fa-tag" aria-hidden="true"></i> Prodotti</a>
-      <a href="#contact"><i class="fa fa-envelope" aria-hidden="true"></i> Contatti</a>
-      <a style="position: absolute; right: 0" href="register.php"><i class="fa fa-user-plus" aria-hidden="true"></i> Registrati</a>
-    </div>
 
-    <?php
-    $query = "select * from componente";
-    $result = mysqli_query($conn, $query);
-    $row = mysqli_fetch_assoc($result);
-    $count = mysqli_num_rows($result);
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../CSS/navbar.css" />
+  <link rel="stylesheet" href="../CSS/styles.css" />
+  <link rel="stylesheet" href="../CSS/prodotti.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="../JS/script.js"></script>
+  <title>Prodotti</title>
+</head>
 
-    for ($i = 0; $i < $count; $i++) {
-      echo "<div class='products products-table'>
+<body>
+  <div class="topnav">
+    <a href="../PHP/index.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+    <a class="active" href=""><i class="fa fa-tag" aria-hidden="true"></i> Prodotti</a>
+    <a href="#contact"><i class="fa fa-envelope" aria-hidden="true"></i> Contatti</a>
+    <a style="position: absolute; right: 0" href="register.php"><i class="fa fa-user-plus" aria-hidden="true"></i> Registrati</a>
+  </div>
+
+  <?php
+  $query = "select * from componente";
+  $result = mysqli_query($conn, $query);
+  $row = mysqli_fetch_assoc($result);
+  $count = mysqli_num_rows($result);
+
+  for ($i = 0; $i < $count; $i++) {
+    echo "<div class='products products-table'>
               <div class='product'>
                 <div class='product-img'>
                   <img src=" . $row['img_dir'] . " />
@@ -43,9 +45,10 @@ $conn = mysqli_connect("localhost", "root", "", "pchecker");
               </div>
             </div>";
 
-      $row = mysqli_fetch_assoc($result);
-    }
-    ?>
+    $row = mysqli_fetch_assoc($result);
+  }
+  ?>
 
-  </body>
+</body>
+
 </html>
