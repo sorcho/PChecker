@@ -24,31 +24,34 @@ $conn = mysqli_connect("localhost", "root", "", "pchecker");
     <a style="position: absolute; right: 0" href="register.php"><i class="fa fa-user-plus" aria-hidden="true"></i> Registrati</a>
   </div>
 
-  <?php
-  $query = "select * from componente";
-  $result = mysqli_query($conn, $query);
-  $row = mysqli_fetch_assoc($result);
-  $count = mysqli_num_rows($result);
+  <form id='form' action="carrello.php" method="post">
+    <div id="container">
+      <?php
+      $query = "select * from componente";
+      $result = mysqli_query($conn, $query);
+      $row = mysqli_fetch_assoc($result);
+      $count = mysqli_num_rows($result);
 
-  for ($i = 0; $i < $count; $i++) {
-    echo "<div class='products products-table'>
+      for ($i = 0; $i < $count; $i++) {
+        echo "<div class='products products-table'>
               <div class='product'>
                 <div class='product-img'>
                   <img src=" . $row['img_dir'] . " />
                 </div>
                 <div class='product-content'>
-                  <h3 style='color: white'>" . $row['modello'] . "</h3>
+                  <h3 id='modello' value=" . $row['modello'] . " style='color: white'>" . $row['modello'] . "</h3>
                   <p class='product-text price'>" . $row['prezzo'] . ".00€</p>
                   <p class='product-text genre'>" . $row['tipologia'] . "</p>
-                  <button><i class='fa fa-cart-plus' aria-hidden='true'></i></button>
+                  <button type='submit' onclick='inviaForm()' id='invia'><i class='fa fa-cart-plus' aria-hidden='true'></i></button>
                 </div>
               </div>
             </div>";
 
-    $row = mysqli_fetch_assoc($result);
-  }
-  ?>
-
+        $row = mysqli_fetch_assoc($result);
+      }
+      ?>
+    </div>
+  </form>
 </body>
 
 </html>

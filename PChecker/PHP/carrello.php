@@ -4,6 +4,26 @@ session_start();
 $conn = mysqli_connect("localhost", "root", "", "pchecker");
 
 $danaro = 0;
+
+function controllo($conn_info, $query)
+{
+  if (mysqli_query($conn_info, $query)) {
+    echo "Comando eseguito con successo<br>";
+  } else {
+    echo mysqli_error($conn_info);
+  }
+}
+
+$page = isset($_GET['p']) ? $_GET['p'] : '';
+if ($page == 'add') {
+  $modello = $_POST['modello'];
+}
+
+$quant = 1;
+
+$query = "insert into carrello ('modello', 'quantità') values ('$modello', $quant)";
+controllo($conn, $query);
+
 ?>
 
 <!DOCTYPE html>
