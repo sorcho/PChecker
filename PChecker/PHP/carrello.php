@@ -62,12 +62,12 @@ if (isset($_POST['IDP'])) {
       $danaro += $rowProduct['prezzo'] * $rowCart['quantità'];
 
       echo "<tr>
-      <td><img class='img' src=" . $rowProduct['img_dir'] . "></td>
-      <td>" . $rowProduct['modello'] . "</td>
-      <td><input type='number' value=" . $rowCart['quantità'] . " min='1' max='5' style='width: 25px' /></td>
-      <td><p>" . $rowProduct['prezzo'] . ".00€</p></td>
-      <td><form action='rimuoviarticolo.php' method='post'><input style='width: 0;visibility: hidden;' type='text' name='id' value=" . $rowCart['ID'] . "><button title='Elimina Prodotto'><i class='fa fa-trash' aria-hidden='true'></i></button></form></td>
-      </tr>";
+              <td><img class='img' src=" . $rowProduct['img_dir'] . "></td>
+              <td>" . $rowProduct['modello'] . "</td>
+              <td><input type='number' value=" . $rowCart['quantità'] . " min='1' max='5' style='width: 25px' /></td>
+              <td><p>" . $rowProduct['prezzo'] . ".00€</p></td>
+              <td><form action='rimuoviarticolo.php' method='post'><input style='width: 0;visibility: hidden;' type='text' name='id' value=" . $rowCart['ID'] . "><button title='Elimina Prodotto'><i class='fa fa-trash' aria-hidden='true'></i></button></form></td>
+            </tr>";
 
       $rowCart = mysqli_fetch_assoc($resultCart);
       $rowProduct = mysqli_fetch_assoc($resultProduct);
