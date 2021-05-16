@@ -15,7 +15,7 @@ session_start();
 <body>
     <div class="topnav">
         <a href="index.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
-        <a href="#news"><i class="fa fa-tag" aria-hidden="true"></i> Prodotti</a>
+        <a href="prodotti.php"><i class="fa fa-tag" aria-hidden="true"></i> Prodotti</a>
         <a href="#contact"><i class="fa fa-envelope" aria-hidden="true"></i> Contatti</a>
         <a class="active" style="position: absolute; right: 0" href=""><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
     </div>

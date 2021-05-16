@@ -19,39 +19,39 @@ $conn = mysqli_connect("localhost", "root", "", "pchecker");
 <body>
   <div class="topnav">
     <a href="../PHP/index.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
-    <a class="active" href=""><i class="fa fa-tag" aria-hidden="true"></i> Prodotti</a>
+    <a class="active" href="prodotti.php"><i class="fa fa-tag" aria-hidden="true"></i> Prodotti</a>
     <a href="#contact"><i class="fa fa-envelope" aria-hidden="true"></i> Contatti</a>
     <a style="position: absolute; right: 0" href="register.php"><i class="fa fa-user-plus" aria-hidden="true"></i> Registrati</a>
   </div>
 
-  <form id='form' action="carrello.php" method="post">
-    <div id="container">
-      <?php
-      $query = "select * from componente";
-      $result = mysqli_query($conn, $query);
-      $row = mysqli_fetch_assoc($result);
-      $count = mysqli_num_rows($result);
+    <?php
+    $query = "select * from prodotti";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = mysqli_num_rows($result);
 
-      for ($i = 0; $i < $count; $i++) {
-        echo "<div class='products products-table'>
-              <div class='product'>
-                <div class='product-img'>
-                  <img src=" . $row['img_dir'] . " />
-                </div>
-                <div class='product-content'>
-                  <h3 id='modello' value=" . $row['modello'] . " style='color: white'>" . $row['modello'] . "</h3>
-                  <p class='product-text price'>" . $row['prezzo'] . ".00€</p>
-                  <p class='product-text genre'>" . $row['tipologia'] . "</p>
-                  <button type='submit' onclick='inviaForm()' id='invia'><i class='fa fa-cart-plus' aria-hidden='true'></i></button>
+    for ($i = 0; $i < $count; $i++) {
+      echo "<form action='carrello.php' method='post'>
+              <div class='products products-table'>
+                <div class='product'>
+                  <div class='product-img'>
+                    <img src=" . $row['img_dir'] . " />
+                  </div>
+                  <div class='product-content'>
+                    <h3 style='color: white'>" . $row['modello'] . "</h3>
+                    <p class='product-text price'>" . $row['prezzo'] . ".00€</p>
+                    <p class='product-text genre'>" . $row['tipologia'] . "</p>
+                    <button type='submit'><i class='fa fa-cart-plus' aria-hidden='true'></i></button>
+                    <input style='visibility: hidden;' value=" . $row['ID'] . " type='text' name='IDP'>
+                  </div>
                 </div>
               </div>
-            </div>";
+            </form>";
 
-        $row = mysqli_fetch_assoc($result);
-      }
-      ?>
-    </div>
-  </form>
+      $row = mysqli_fetch_assoc($result);
+    }
+    ?>
+
 </body>
 
 </html>

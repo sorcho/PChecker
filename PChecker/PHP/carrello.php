@@ -5,25 +5,15 @@ $conn = mysqli_connect("localhost", "root", "", "pchecker");
 
 $danaro = 0;
 
-function controllo($conn_info, $query)
-{
-  if (mysqli_query($conn_info, $query)) {
-    echo "Comando eseguito con successo<br>";
-  } else {
-    echo mysqli_error($conn_info);
-  }
+if (isset($_POST['IDP'])) {
+  $id = $_POST['IDP'];
+  $quant = 1;
+
+  $sql = "INSERT INTO carrello (ID_Prodotto, quantità) values (?, ?)";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("ii", $id, $quant);
+  $stmt->execute();
 }
-
-$page = isset($_GET['p']) ? $_GET['p'] : '';
-if ($page == 'add') {
-  $modello = $_POST['modello'];
-}
-
-$quant = 1;
-
-$query = "insert into carrello ('modello', 'quantità') values ('$modello', $quant)";
-controllo($conn, $query);
-
 ?>
 
 <!DOCTYPE html>
@@ -57,23 +47,32 @@ controllo($conn, $query);
     </tr>
 
     <?php
-    $query = "select * from carrello";
-    $result = mysqli_query($conn, $query);
-    $row = mysqli_fetch_assoc($result);
-    $count = mysqli_num_rows($result);
+    $selectCart = "select * from carrello";
+    $resultCart = mysqli_query($conn, $selectCart);
+    $rowCart = mysqli_fetch_assoc($resultCart);
+    $countCar = mysqli_num_rows($resultCart);
 
-    for ($i = 0; $i < $count; $i++) {
-      $danaro += $row['prezzo'] * $row['quantità'];
+    for ($i = 0; $i < $countCar; $i++) {
+      $idp = $rowCart['ID_Prodotto'];
+
+      $selectProduct = "select * from prodotti where ID = '$idp'";
+      $resultProduct = mysqli_query($conn, $selectProduct);
+      $rowProduct = mysqli_fetch_assoc($resultProduct);
+
+      $danaro += $rowProduct['prezzo'] * $rowCart['quantità'];
 
       echo "<tr>
-              <td><img class='img' src=" . $row['img_dir'] . "></td>
-              <td>" . $row['modello'] . "</td>
-              <td><input type='number' value=" . $row['quantità'] . " min='1' max='5' style='width: 25px' /></td>
-              <td><p>" . $row['prezzo'] . ".00€</p></td>
-              <td><form action='rimuoviarticolo.php' method='post'><input style='width: 0;visibility: hidden;' type='text' name='id' value=" . $row['ID'] . "><button title='Elimina Prodotto'><i class='fa fa-trash' aria-hidden='true'></i></button></form></td>
-            </tr>";
+      <td><img class='img' src=" . $rowProduct['img_dir'] . "></td>
+      <td>" . $rowProduct['modello'] . "</td>
+      <td><input type='number' value=" . $rowCart['quantità'] . " min='1' max='5' style='width: 25px' /></td>
+      <td><p>" . $rowProduct['prezzo'] . ".00€</p></td>
+      <td><form action='rimuoviarticolo.php' method='post'><input style='width: 0;visibility: hidden;' type='text' name='id' value=" . $rowCart['ID'] . "><button title='Elimina Prodotto'><i class='fa fa-trash' aria-hidden='true'></i></button></form></td>
+      </tr>";
 
-      $row = mysqli_fetch_assoc($result);
+      $rowCart = mysqli_fetch_assoc($resultCart);
+      $rowProduct = mysqli_fetch_assoc($resultProduct);
+
+      header("Location prodotti.php");
     }
     ?>
   </table>
