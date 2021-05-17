@@ -1,10 +1,11 @@
 <?php
+session_start();
 
-$username = $_POST["username"];
 $email = $_POST["email"];
-$password = $_POST["password"];
-$sesso = $_POST["sesso"];
-$tipo = $_POST["tipo"];
+$password = $_POST["psw"];
+
+$msgyes = "Accesso effettuato correttamente, verrai reindirizzato alla Home.";
+$msgno = "Accesso non riuscito, credenziali errate o utente inesistente, verrai reindirizzato alla pagina di Login.";
 
 function controllo($conn_info, $query)
 {
@@ -17,29 +18,20 @@ function controllo($conn_info, $query)
 
 $conn = mysqli_connect("localhost", "root", "", "pchecker");
 
-$sql = "INSERT INTO users (username, email, password, sesso, tipo) values (?, ?, ?, ?, ?)";
-$stmt = $link->prepare($sql);
-$stmt->bind_param("sssss", $username, $email, $password, $sesso, $tipo);
-
-$sql = "select email from users where email='$email'";
-$result = mysqli_query($link, $sql);
+$query = "select email, password from utente where email='$email' and password='$password'";
+$result = mysqli_query($conn, $query);
 $count = mysqli_num_rows($result);
 
 if ($count == 1) {
-    echo "Questo utente è già presente nel database, per favore effettuare l'accesso!";
+    $_SESSION["email"] = $email;
+
+    echo "<script>
+            alert('$msgyes');
+            window.location= 'index.php'
+          </script>";
 } else {
-    $stmt->execute();
-        echo "Codice corretto!";
-
-        echo "<br>Il tuo username è: " . $username;
-        echo "<br>La tua email è: " . $email;
-        echo "<br>La tua password è: " . $password;
-        echo "<br>Attualmente sei registrato come: " . $tipo;
-
-        if ($sesso == "M")
-            echo "<br> Il tuo sesso è: Maschio";
-        elseif ($sesso == "F")
-            echo "<br> Il tuo sesso è: Femmina";
-        else
-            echo "<br> Il tuo sesso è: Altro";
-    }
+    echo "<script>
+            alert('$msgno');
+            window.location= 'login.php'
+          </script>";
+}

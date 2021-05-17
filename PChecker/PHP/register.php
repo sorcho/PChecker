@@ -9,6 +9,7 @@ session_start();
     <title>Registrazione</title>
     <link rel="stylesheet" href="../CSS/navbar.css">
     <link rel="stylesheet" href="../CSS/forms.css">
+    <link rel="stylesheet" href="../CSS/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -20,7 +21,7 @@ session_start();
         <a class="active" style="position: absolute; right: 0" href=""><i class="fa fa-user-plus" aria-hidden="true"></i> Registrati</a>
     </div>
 
-    <form method="post" action="">
+    <form method="post" action="registerDB.php">
         <div class="container">
             <h1>Registrazione</h1>
             <p>Per favore compila tutti i campi.</p>
