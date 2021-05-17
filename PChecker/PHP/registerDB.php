@@ -1,10 +1,10 @@
 <?php
 
-$username = $_POST["username"];
+$nome = $_POST["nome"];
+$cognome = $_POST["cognome"];
+$fiscale = $_POST["fiscale"];
 $email = $_POST["email"];
-$password = $_POST["password"];
-$sesso = $_POST["sesso"];
-$tipo = $_POST["tipo"];
+$password = $_POST["psw"];
 
 function controllo($conn_info, $query)
 {
@@ -17,11 +17,11 @@ function controllo($conn_info, $query)
 
 $conn = mysqli_connect("localhost", "root", "", "pchecker");
 
-$sql = "INSERT INTO users (username, email, password, sesso, tipo) values (?, ?, ?, ?, ?)";
+$sql = "INSERT INTO utente (nome, cognome, codice_fiscale, email, password) values (?, ?, ?, ?, ?)";
 $stmt = $link->prepare($sql);
-$stmt->bind_param("sssss", $username, $email, $password, $sesso, $tipo);
+$stmt->bind_param("sssss", $nome, $cognome, $fiscale, $email, $password);
 
-$sql = "select email from users where email='$email'";
+$sql = "select codice_fiscale from utente where codice_fiscale='$fiscale'";
 $result = mysqli_query($link, $sql);
 $count = mysqli_num_rows($result);
 
@@ -29,17 +29,4 @@ if ($count == 1) {
     echo "Questo utente è già presente nel database, per favore effettuare l'accesso!";
 } else {
     $stmt->execute();
-    echo "Codice corretto!";
-
-    echo "<br>Il tuo username è: " . $username;
-    echo "<br>La tua email è: " . $email;
-    echo "<br>La tua password è: " . $password;
-    echo "<br>Attualmente sei registrato come: " . $tipo;
-
-    if ($sesso == "M")
-        echo "<br> Il tuo sesso è: Maschio";
-    elseif ($sesso == "F")
-        echo "<br> Il tuo sesso è: Femmina";
-    else
-        echo "<br> Il tuo sesso è: Altro";
 }
