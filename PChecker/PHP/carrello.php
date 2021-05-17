@@ -94,6 +94,17 @@ if (isset($_POST['IDP'])) {
     <img alt="" border="0" src="https://www.paypalobjects.com/it_IT/i/scr/pixel.gif" width="1" height="1">
   </form>
 
+  <div class="footer">
+    <div>
+      <img class="logo" src="../IMG/logo.png" alt="PChecker">
+      <span style="visibility: hidden;vertical-align: middle;">l</span>
+    </div>
+    <div class="copyright">
+      <img style="visibility: hidden;" class="logo" src="../IMG/logo.png" alt="PChecker">
+      <span style="vertical-align: middle;">PChecker&copy; 2020/2021</span>
+    </div>
+    <div></div>
+  </div>
 </body>
 
 </html>

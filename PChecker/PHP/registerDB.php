@@ -29,17 +29,17 @@ if ($count == 1) {
     echo "Questo utente è già presente nel database, per favore effettuare l'accesso!";
 } else {
     $stmt->execute();
-        echo "Codice corretto!";
+    echo "Codice corretto!";
 
-        echo "<br>Il tuo username è: " . $username;
-        echo "<br>La tua email è: " . $email;
-        echo "<br>La tua password è: " . $password;
-        echo "<br>Attualmente sei registrato come: " . $tipo;
+    echo "<br>Il tuo username è: " . $username;
+    echo "<br>La tua email è: " . $email;
+    echo "<br>La tua password è: " . $password;
+    echo "<br>Attualmente sei registrato come: " . $tipo;
 
-        if ($sesso == "M")
-            echo "<br> Il tuo sesso è: Maschio";
-        elseif ($sesso == "F")
-            echo "<br> Il tuo sesso è: Femmina";
-        else
-            echo "<br> Il tuo sesso è: Altro";
-    }
+    if ($sesso == "M")
+        echo "<br> Il tuo sesso è: Maschio";
+    elseif ($sesso == "F")
+        echo "<br> Il tuo sesso è: Femmina";
+    else
+        echo "<br> Il tuo sesso è: Altro";
+}

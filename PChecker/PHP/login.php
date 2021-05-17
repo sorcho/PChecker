@@ -40,6 +40,17 @@ session_start();
             <p>Nuovo utente? <a href="register.php" style="color: #8f35e3;text-decoration: none;">Registrati</a>!</p>
         </div>
     </form>
+    <div class="footer">
+    <div>
+      <img class="logo" src="../IMG/logo.png" alt="PChecker">
+      <span style="visibility: hidden;vertical-align: middle;">l</span>
+    </div>
+    <div class="copyright">
+      <img style="visibility: hidden;" class="logo" src="../IMG/logo.png" alt="PChecker">
+      <span style="vertical-align: middle;">PChecker&copy; 2020/2021</span>
+    </div>
+    <div></div>
+  </div>
 </body>
 
 </html>

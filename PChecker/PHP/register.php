@@ -33,7 +33,7 @@ session_start();
             <input type="text" placeholder="Inserisci cognome" name="cognome" required>
 
             <label for="fiscale"><b>Codice Fiscale</b></label>
-            <input type="text" placeholder="Inserisci codice fiscale" name="fiscale" minlength="16" required>
+            <input type="text" placeholder="Inserisci codice fiscale" name="fiscale" minlength="16" maxlength="16" required>
 
             <label for="email"><b>Email</b></label>
             <input type="email" placeholder="Inserisci Email" name="email" required>
@@ -49,6 +49,18 @@ session_start();
             <p>Già registrato? <a href="login.php" style="color: #8f35e3;text-decoration: none;">Accedi</a>!</p>
         </div>
     </form>
+
+    <div class="footer">
+    <div>
+      <img class="logo" src="../IMG/logo.png" alt="PChecker">
+      <span style="visibility: hidden;vertical-align: middle;">l</span>
+    </div>
+    <div class="copyright">
+      <img style="visibility: hidden;" class="logo" src="../IMG/logo.png" alt="PChecker">
+      <span style="vertical-align: middle;">PChecker&copy; 2020/2021</span>
+    </div>
+    <div></div>
+  </div>
 </body>
 
 </html>
