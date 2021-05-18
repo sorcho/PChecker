@@ -6,7 +6,7 @@ session_start();
 <style>
   .ogg,
   input[type="email"] {
-    width: 50%;
+    width: 95%;
     padding: 15px;
     margin: 5px 0 22px 0;
     display: inline-block;
@@ -39,18 +39,24 @@ session_start();
     width: auto;
     margin: 0;
     padding: 10px;
-    font-family: Raleway, sans-serif;
     font-weight: normal;
     font-size: 12pt;
-    outline: none;
-    border-radius: 0;
-    background: none;
-    border: 2px solid #282b33;
+    background-color: #333333;
+    border: 1px solid white;
   }
 
   button:hover {
     background-color: #282b33;
     color: white;
+    cursor: pointer;
+  }
+
+  p {
+    width: 100%;
+    color: white;
+    margin-left: 25px;
+    margin-top: 10px;
+    font-size: 19px;
   }
 </style>
 
@@ -78,7 +84,7 @@ session_start();
   </div>
 
   <form>
-    <div>
+    <div style="width: 50%; float: left;">
       <?php
       if ($_SESSION['email'] != null) {
         echo "<input type='email' readonly name='email' value=" . $_SESSION['email'] . ">";
@@ -88,7 +94,11 @@ session_start();
       ?>
       <input class="ogg" type="text" name="oggetto" placeholder="Oggetto dell'email" />
     </div>
-    <textarea name="contenuto" id="contenuto" cols="30" rows="10" placeholder="Messaggio"></textarea>
+    <div style="float: left; width: 48.5%;">
+      <p>Benvenuto nell'assistenza tecnica! In questa pagina potrai mandare un ticket di assistenza a me, il founder! <br>
+        Nel caso tu avessi già effettuato l'accesso, la mail sarà già inserita e non avrai modo di cambiarla, al contrario la mail dovrai inserirla manualmente, quindi scrivila correttamente altrimenti non riceverai alcuna risposta.</p>
+    </div>
+    <textarea name="contenuto" cols="30" rows="10" placeholder="Messaggio"></textarea>
     <center><button type="submit" value="Invia ticket"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button></center>
   </form>
 
