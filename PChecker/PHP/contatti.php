@@ -76,14 +76,15 @@ session_start();
     <a class="active" href=""><i class="fa fa-envelope" aria-hidden="true"></i> Contatti</a>
     <?php
     if ($_SESSION['email'] != null) {
-      echo "<a style='position: absolute; right: 0' href='../HTML/utente.html'><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>";
+      echo "<a style='position: absolute; right: 96px;' href='carrello.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Carrello</a>
+            <a style='position: absolute; right: 0' href='../HTML/utente.html'><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>";
     } else {
       echo "<a style='position: absolute; right: 0' href='register.php'><i class='fa fa-user-plus' aria-hidden='true'></i> Registrati</a>";
     }
     ?>
   </div>
 
-  <form>
+  <form method="post" action="sendMail.php">
     <div style="width: 50%; float: left;">
       <?php
       if ($_SESSION['email'] != null) {
@@ -96,7 +97,7 @@ session_start();
     </div>
     <div style="float: left; width: 48.5%;">
       <p>Benvenuto nell'assistenza tecnica! In questa pagina potrai mandare un ticket di assistenza a me, il founder! <br>
-        Nel caso tu avessi già effettuato l'accesso, la mail sarà già inserita e non avrai modo di cambiarla, al contrario la mail dovrai inserirla manualmente, quindi scrivila correttamente altrimenti non riceverai alcuna risposta.</p>
+        Nel caso tu avessi già effettuato l'accesso, la mail sarà già inserita e non avrai modo di cambiarla, al contrario, la mail dovrai inserirla manualmente, quindi scrivila correttamente altrimenti non riceverai alcuna risposta.</p>
     </div>
     <textarea name="contenuto" cols="30" rows="10" placeholder="Messaggio"></textarea>
     <center><button type="submit" value="Invia ticket"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button></center>

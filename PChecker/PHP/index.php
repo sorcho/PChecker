@@ -20,7 +20,8 @@ session_start();
     <a href="contatti.php"><i class="fa fa-envelope" aria-hidden="true"></i> Contatti</a>
     <?php
     if ($_SESSION['email'] != null) {
-      echo "<a style='position: absolute; right: 0' href='../HTML/utente.html'><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>";
+      echo "<a style='position: absolute; right: 96px;' href='carrello.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Carrello</a>
+            <a style='position: absolute; right: 0' href='../HTML/utente.html'><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>";
     } else {
       echo "<a style='position: absolute; right: 0' href='register.php'><i class='fa fa-user-plus' aria-hidden='true'></i> Registrati</a>";
     }
