@@ -16,7 +16,7 @@ session_start();
     color: white;
   }
 
-  .content {
+  textarea {
     width: 98.4%;
     height: 200px;
     padding: 15px;
@@ -32,6 +32,25 @@ session_start();
   input[type="email"]:focus {
     background-color: #343434;
     outline: none;
+  }
+
+  button {
+    height: auto;
+    width: auto;
+    margin: 0;
+    padding: 10px;
+    font-family: Raleway, sans-serif;
+    font-weight: normal;
+    font-size: 12pt;
+    outline: none;
+    border-radius: 0;
+    background: none;
+    border: 2px solid #282b33;
+  }
+
+  button:hover {
+    background-color: #282b33;
+    color: white;
   }
 </style>
 
@@ -49,7 +68,13 @@ session_start();
     <a href="index.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
     <a href="prodotti.php"><i class="fa fa-tag" aria-hidden="true"></i> Prodotti</a>
     <a class="active" href=""><i class="fa fa-envelope" aria-hidden="true"></i> Contatti</a>
-    <a style="position: absolute; right: 0" href="register.php"><i class="fa fa-user-plus" aria-hidden="true"></i> Registrati</a>
+    <?php
+    if ($_SESSION['email'] != null) {
+      echo "<a style='position: absolute; right: 0' href='../HTML/utente.html'><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>";
+    } else {
+      echo "<a style='position: absolute; right: 0' href='register.php'><i class='fa fa-user-plus' aria-hidden='true'></i> Registrati</a>";
+    }
+    ?>
   </div>
 
   <form>
@@ -58,12 +83,13 @@ session_start();
       if ($_SESSION['email'] != null) {
         echo "<input type='email' readonly name='email' value=" . $_SESSION['email'] . ">";
       } else {
-        echo "<input type='email' name='email' />";
+        echo "<input type='email' name='email' placeholder='Email'/>";
       }
       ?>
-      <input class="ogg" type="text" name="oggetto" />
+      <input class="ogg" type="text" name="oggetto" placeholder="Oggetto dell'email" />
     </div>
-    <input class="content" type="text" name="contenuto" />
+    <textarea name="contenuto" id="contenuto" cols="30" rows="10" placeholder="Messaggio"></textarea>
+    <center><button type="submit" value="Invia ticket"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button></center>
   </form>
 
   <div class="footer">

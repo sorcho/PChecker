@@ -34,7 +34,13 @@ if (isset($_POST['IDP'])) {
     <a class="active" href=""><i class="fa fa-home" aria-hidden="true"></i> Home</a>
     <a href="#news"><i class="fa fa-tag" aria-hidden="true"></i> Prodotti</a>
     <a href="#contact"><i class="fa fa-envelope" aria-hidden="true"></i> Contatti</a>
-    <a style="position: absolute; right: 0" href="register.php"><i class="fa fa-user-plus" aria-hidden="true"></i> Registrati</a>
+    <?php
+    if ($_SESSION['email'] != null) {
+      echo "<a style='position: absolute; right: 0' href='../HTML/utente.html'><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>";
+    } else {
+      echo "<a style='position: absolute; right: 0' href='register.php'><i class='fa fa-user-plus' aria-hidden='true'></i> Registrati</a>";
+    }
+    ?>
   </div>
 
   <table cellspacing="0" cellpadding="0">
