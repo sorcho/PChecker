@@ -18,13 +18,14 @@ function controllo($conn_info, $query)
 
 $conn = mysqli_connect("localhost", "root", "", "pchecker");
 
-$query = "select email, password, nome from utente where email='$email' and password='$password'";
+$query = "select * from utente where email='$email' and password='$password'";
 $result = mysqli_query($conn, $query);
 $count = mysqli_num_rows($result);
 $row = mysqli_fetch_assoc($result);
 
 if ($count == 1) {
     $_SESSION["email"] = $email;
+    $_SESSION["fiscale"] = $row['codice_fiscale'];
     $_SESSION["nome"] = $row['nome'];
 
     echo "<script>

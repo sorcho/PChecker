@@ -12,6 +12,7 @@
 /* Full-width input fields */
 input[type="text"],
 input[type="password"],
+input[type="number"],
 input[type="email"] {
   width: 100%;
   padding: 15px;
@@ -24,6 +25,7 @@ input[type="email"] {
 
 input[type="text"]:focus,
 input[type="password"]:focus,
+input[type="number"]:focus,
 input[type="email"]:focus {
   background-color: #343434;
   outline: none;
@@ -55,4 +57,10 @@ hr {
 .signin {
   background-color: #252525;
   text-align: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

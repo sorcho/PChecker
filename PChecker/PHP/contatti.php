@@ -75,9 +75,9 @@ session_start();
     <a href="prodotti.php"><i class="fa fa-tag" aria-hidden="true"></i> Prodotti</a>
     <a class="active" href=""><i class="fa fa-envelope" aria-hidden="true"></i> Contatti</a>
     <?php
-    if ($_SESSION['email'] != null) {
+    if (isset($_SESSION['email'])) {
       echo "<a style='position: absolute; right: 96px;' href='carrello.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Carrello</a>
-            <a style='position: absolute; right: 0' href='../HTML/utente.html'><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>";
+            <a style='position: absolute; right: 0' href='utente.php'><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>";
     } else {
       echo "<a style='position: absolute; right: 0' href='register.php'><i class='fa fa-user-plus' aria-hidden='true'></i> Registrati</a>";
     }
@@ -87,7 +87,7 @@ session_start();
   <form method="post" action="sendMail.php">
     <div style="width: 50%; float: left;">
       <?php
-      if ($_SESSION['email'] != null) {
+      if (isset($_SESSION['email'])) {
         echo "<input type='email' readonly name='email' value=" . $_SESSION['email'] . ">";
       } else {
         echo "<input type='email' name='email' placeholder='Email'/>";
