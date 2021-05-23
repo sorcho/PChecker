@@ -58,7 +58,6 @@ $fiscale = $_SESSION['fiscale'];
         <th>Surname</th>
         <th>Tax Code</th>
         <th>Email</th>
-        <th>Password</th>
       </tr>
 
       <?php
@@ -73,7 +72,6 @@ $fiscale = $_SESSION['fiscale'];
               <td><p>" . $row['cognome'] . "</p></td>
               <td><p>" . $row['codice_fiscale'] . "</p></td>
               <td><p>" . $row['email'] . "</p></td>
-              <td><p>" . $row['password'] . "</p></td>
             </tr>";
       }
       ?>

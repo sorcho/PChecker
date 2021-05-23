@@ -38,7 +38,7 @@ session_start();
     </div>
 
     <div class="container signin">
-      <p>Nuovo utente? <a href="register.php" style="color: #8f35e3;text-decoration: none;">Registrati</a>!</p>
+      <p>New User? <a href="register.php" style="color: #8f35e3;text-decoration: none;">Register</a>!</p>
     </div>
   </form>
 
