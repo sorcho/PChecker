@@ -4,14 +4,15 @@ session_start();
 $conn = mysqli_connect("localhost", "root", "", "pchecker");
 
 $danaro = 0;
+$fiscale = $_SESSION['fiscale'];
 
 if (isset($_POST['IDP'])) {
   $id = $_POST['IDP'];
   $quant = 1;
 
-  $sql = "INSERT INTO carrello (ID_Prodotto, quantità) values (?, ?)";
+  $sql = "INSERT INTO carrello (ID_Utente ,ID_Prodotto, quantità) values (? ,?, ?)";
   $stmt = $conn->prepare($sql);
-  $stmt->bind_param("ii", $id, $quant);
+  $stmt->bind_param("sii", $fiscale, $id, $quant);
   $stmt->execute();
 }
 ?>
@@ -36,8 +37,8 @@ if (isset($_POST['IDP'])) {
     <a href="contatti.php"><i class="fa fa-envelope" aria-hidden="true"></i> Contatti</a>
     <?php
     if (isset($_SESSION['email'])) {
-      echo "<a class='active' style='position: absolute; right: 96px;' href='carrello.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Carrello</a>
-            <a style='position: absolute; right: 0' href='utente.php'><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>";
+      echo "<a style='float: right;' href='utente.php'><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>
+            <a style='float: right;' class='active' href=''><i class='fa fa-shopping-cart' aria-hidden='true'></i> Carrello</a> ";
     } else {
       echo "<a style='position: absolute; right: 0' href='register.php'><i class='fa fa-user-plus' aria-hidden='true'></i> Registrati</a>";
     }
@@ -54,7 +55,7 @@ if (isset($_POST['IDP'])) {
     </tr>
 
     <?php
-    $selectCart = "select * from carrello";
+    $selectCart = "select * from carrello where ID_Utente = '$fiscale'";
     $resultCart = mysqli_query($conn, $selectCart);
     $rowCart = mysqli_fetch_assoc($resultCart);
     $countCar = mysqli_num_rows($resultCart);

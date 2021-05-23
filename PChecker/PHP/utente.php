@@ -43,8 +43,8 @@ $fiscale = $_SESSION['fiscale'];
     <a href="contatti.php"><i class="fa fa-envelope" aria-hidden="true"></i> Contatti</a>
     <?php
     if (isset($_SESSION['email'])) {
-      echo "<a style='position: absolute; right: 96px;' href='carrello.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Carrello</a>
-            <a class='active' style='position: absolute; right: 0' href=''><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>";
+      echo "<a style='float: right;' class='active' href=''><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>
+            <a style='float: right;' href='carrello.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Carrello</a> ";
     } else {
       echo "<a style='position: absolute; right: 0' href='register.php'><i class='fa fa-user-plus' aria-hidden='true'></i> Registrati</a>";
     }

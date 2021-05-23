@@ -18,27 +18,27 @@ $conn = mysqli_connect("localhost", "root", "", "pchecker");
 
 <body>
   <div class="topnav">
-    <a href="../PHP/index.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
-    <a class="active" href="prodotti.php"><i class="fa fa-tag" aria-hidden="true"></i> Prodotti</a>
+    <a href="index.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+    <a class="active" href=""><i class="fa fa-tag" aria-hidden="true"></i> Prodotti</a>
     <a href="contatti.php"><i class="fa fa-envelope" aria-hidden="true"></i> Contatti</a>
     <?php
     if (isset($_SESSION['email'])) {
-      echo "<a style='position: absolute; right: 96px;' href='carrello.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Carrello</a>
-            <a style='position: absolute; right: 0' href='utente.php'><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>";
+      echo "<a style='float: right;' href='utente.php'><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>
+            <a style='float: right;' href='carrello.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Carrello</a> ";
     } else {
       echo "<a style='position: absolute; right: 0' href='register.php'><i class='fa fa-user-plus' aria-hidden='true'></i> Registrati</a>";
     }
     ?>
   </div>
 
-    <?php
-    $query = "select * from prodotti";
-    $result = mysqli_query($conn, $query);
-    $row = mysqli_fetch_assoc($result);
-    $count = mysqli_num_rows($result);
+  <?php
+  $query = "select * from prodotti";
+  $result = mysqli_query($conn, $query);
+  $row = mysqli_fetch_assoc($result);
+  $count = mysqli_num_rows($result);
 
-    for ($i = 0; $i < $count; $i++) {
-      echo "<form action='carrello.php' method='post'>
+  for ($i = 0; $i < $count; $i++) {
+    echo "<form action='carrello.php' method='post'>
               <div class='products products-table'>
                 <div class='product'>
                   <div class='product-img'>
@@ -55,11 +55,11 @@ $conn = mysqli_connect("localhost", "root", "", "pchecker");
               </div>
             </form>";
 
-      $row = mysqli_fetch_assoc($result);
-    }
-    ?>
+    $row = mysqli_fetch_assoc($result);
+  }
+  ?>
 
-<div class="footer">
+  <div class="footer">
     <div>
       <img class="logo" src="../IMG/logo.png" alt="PChecker">
       <span style="visibility: hidden;vertical-align: middle;">l</span>
