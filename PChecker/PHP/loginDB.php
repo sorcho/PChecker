@@ -4,8 +4,8 @@ session_start();
 $email = $_POST["email"];
 $password = $_POST["psw"];
 
-$msgyes = "Accesso effettuato correttamente, verrai reindirizzato alla Home.";
-$msgno = "Accesso non riuscito, credenziali errate o utente inesistente, verrai reindirizzato alla pagina di Login.";
+$msgyes = "Log-in executed with no errores! You will now be redirected at the Homepage!";
+$msgno = "Log-in error, wrong log-in informations or no user found, You will now be redirected at the Log-in page.";
 
 function controllo($conn_info, $query)
 {

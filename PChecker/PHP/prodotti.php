@@ -13,20 +13,20 @@ $conn = mysqli_connect("localhost", "root", "", "pchecker");
   <link rel="stylesheet" href="../CSS/prodotti.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <script src="../JS/script.js"></script>
-  <title>Prodotti</title>
+  <title>Products</title>
 </head>
 
 <body>
   <div class="topnav">
     <a href="index.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
-    <a class="active" href=""><i class="fa fa-tag" aria-hidden="true"></i> Prodotti</a>
-    <a href="contatti.php"><i class="fa fa-envelope" aria-hidden="true"></i> Contatti</a>
+    <a class="active" href=""><i class="fa fa-tag" aria-hidden="true"></i> Products</a>
+    <a href="contatti.php"><i class="fa fa-envelope" aria-hidden="true"></i> Contact me</a>
     <?php
     if (isset($_SESSION['email'])) {
       echo "<a style='float: right;' href='utente.php'><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>
-            <a style='float: right;' href='carrello.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Carrello</a> ";
+            <a style='float: right;' href='carrello.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Cart</a> ";
     } else {
-      echo "<a style='position: absolute; right: 0' href='register.php'><i class='fa fa-user-plus' aria-hidden='true'></i> Registrati</a>";
+      echo "<a style='position: absolute; right: 0' href='register.php'><i class='fa fa-user-plus' aria-hidden='true'></i> Register</a>";
     }
     ?>
   </div>

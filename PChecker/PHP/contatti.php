@@ -66,20 +66,20 @@ session_start();
   <link rel="stylesheet" href="../CSS/styles.css" />
   <link rel="stylesheet" href="../CSS/navbar.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <title>Contatti</title>
+  <title>Contact me</title>
 </head>
 
 <body>
   <div class="topnav">
     <a href="index.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
-    <a href="prodotti.php"><i class="fa fa-tag" aria-hidden="true"></i> Prodotti</a>
-    <a class="active" href=""><i class="fa fa-envelope" aria-hidden="true"></i> Contatti</a>
+    <a href="prodotti.php"><i class="fa fa-tag" aria-hidden="true"></i> Products</a>
+    <a class="active" href=""><i class="fa fa-envelope" aria-hidden="true"></i> Contact me</a>
     <?php
     if (isset($_SESSION['email'])) {
       echo "<a style='float: right;' href='utente.php'><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>
-            <a style='float: right;' href='carrello.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Carrello</a> ";
+            <a style='float: right;' href='carrello.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Cart</a> ";
     } else {
-      echo "<a style='position: absolute; right: 0' href='register.php'><i class='fa fa-user-plus' aria-hidden='true'></i> Registrati</a>";
+      echo "<a style='position: absolute; right: 0' href='register.php'><i class='fa fa-user-plus' aria-hidden='true'></i> Register</a>";
     }
     ?>
   </div>
@@ -93,13 +93,14 @@ session_start();
         echo "<input type='email' name='email' placeholder='Email'/>";
       }
       ?>
-      <input class="ogg" type="text" name="oggetto" placeholder="Oggetto dell'email" />
+      <input class="ogg" type="text" name="oggetto" placeholder="Email Object" />
     </div>
     <div style="float: left; width: 48.5%;">
-      <p>Benvenuto nell'assistenza tecnica! In questa pagina potrai mandare un ticket di assistenza a me, il founder! <br>
-        Nel caso tu avessi già effettuato l'accesso, la mail sarà già inserita e non avrai modo di cambiarla, al contrario, la mail dovrai inserirla manualmente, quindi scrivila correttamente altrimenti non riceverai alcuna risposta.</p>
+      <p>Welcome in the Support Zone! In this page you can send an assistance ticket directly to me, the founder! <br>
+        If you are already logged-in, the email will be already there and you will not have the possibility to change it. <br>
+        Otherwise, you will have to insert the email manually, so be careful, you could not receive any answer.</p>
     </div>
-    <textarea name="contenuto" cols="30" rows="10" placeholder="Messaggio"></textarea>
+    <textarea name="contenuto" cols="30" rows="10" placeholder="Message"></textarea>
     <center><button type="submit" value="Invia ticket"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button></center>
   </form>
 

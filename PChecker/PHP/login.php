@@ -6,7 +6,7 @@ session_start();
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Login</title>
+  <title>Log-in</title>
   <link rel="stylesheet" href="../CSS/navbar.css">
   <link rel="stylesheet" href="../CSS/forms.css">
   <link rel="stylesheet" href="../CSS/styles.css">
@@ -23,18 +23,18 @@ session_start();
 
   <form method="post" action="loginDB.php">
     <div class="container">
-      <h1>Login</h1>
-      <p>Per favore compila tutti i campi.</p>
+      <h1>Log-in</h1>
+      <p>Fill every field in please.</p>
       <hr>
 
       <label for="email"><b>Email</b></label>
-      <input type="email" placeholder="Inserisci Email" name="email" required>
+      <input type="email" placeholder="Insert your Email" name="email" required>
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Inserisci Password" name="psw" required>
+      <input type="password" placeholder="Insert your Password" name="psw" required>
       <hr>
 
-      <button type="submit" class="registerbtn">Accedi</button>
+      <button type="submit" class="registerbtn">Log-in</button>
     </div>
 
     <div class="container signin">

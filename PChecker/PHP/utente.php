@@ -39,14 +39,14 @@ $fiscale = $_SESSION['fiscale'];
 <body>
   <div class="topnav">
     <a href="index.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
-    <a href="prodotti.php"><i class="fa fa-tag" aria-hidden="true"></i> Prodotti</a>
-    <a href="contatti.php"><i class="fa fa-envelope" aria-hidden="true"></i> Contatti</a>
+    <a href="prodotti.php"><i class="fa fa-tag" aria-hidden="true"></i> Products</a>
+    <a href="contatti.php"><i class="fa fa-envelope" aria-hidden="true"></i> Contact me</a>
     <?php
     if (isset($_SESSION['email'])) {
       echo "<a style='float: right;' class='active' href=''><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>
-            <a style='float: right;' href='carrello.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Carrello</a> ";
+            <a style='float: right;' href='carrello.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Cart</a> ";
     } else {
-      echo "<a style='position: absolute; right: 0' href='register.php'><i class='fa fa-user-plus' aria-hidden='true'></i> Registrati</a>";
+      echo "<a style='position: absolute; right: 0' href='register.php'><i class='fa fa-user-plus' aria-hidden='true'></i> Register</a>";
     }
     ?>
   </div>
@@ -54,9 +54,9 @@ $fiscale = $_SESSION['fiscale'];
   <div>
     <table cellspacing="0" cellpadding="0">
       <tr>
-        <th>Nome</th>
-        <th>Cognome</th>
-        <th>Codice Fiscale</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Tax Code</th>
         <th>Email</th>
         <th>Password</th>
       </tr>
@@ -83,10 +83,10 @@ $fiscale = $_SESSION['fiscale'];
   <div style="float: left;">
     <table cellspacing="0" cellpadding="0">
       <tr>
-        <th>Indirizzo</th>
-        <th>Città</th>
-        <th>Provincia</th>
-        <th>CAP</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>Province</th>
+        <th>Postal Code</th>
       </tr>
 
       <?php
@@ -111,7 +111,7 @@ $fiscale = $_SESSION['fiscale'];
     <form action="aggiornaSpedizione.php">
       <?php
       if (!isset($row['indirizzo']) && !isset($row['città']) && !isset($row['provincia']) && !isset($row['cap'])) {
-        echo "<button type='submit'><i class='fa fa-truck' aria-hidden='true'></i> Aggiorna dati di Spedizione</button>";
+        echo "<button type='submit'><i class='fa fa-truck' aria-hidden='true'></i> Update Shipping Info</button>";
       }
       ?>
     </form>

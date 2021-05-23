@@ -16,14 +16,14 @@ session_start();
 <body>
   <div class="topnav">
     <a class="active" href=""><i class="fa fa-home" aria-hidden="true"></i> Home</a>
-    <a href="prodotti.php"><i class="fa fa-tag" aria-hidden="true"></i> Prodotti</a>
-    <a href="contatti.php"><i class="fa fa-envelope" aria-hidden="true"></i> Contatti</a>
+    <a href="prodotti.php"><i class="fa fa-tag" aria-hidden="true"></i> Products</a>
+    <a href="contatti.php"><i class="fa fa-envelope" aria-hidden="true"></i> Contact me</a>
     <?php
     if (isset($_SESSION['email'])) {
       echo "<a style='float: right;' href='utente.php'><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>
-            <a style='float: right;' href='carrello.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Carrello</a> ";
+            <a style='float: right;' href='carrello.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Cart</a> ";
     } else {
-      echo "<a style='position: absolute; right: 0' href='register.php'><i class='fa fa-user-plus' aria-hidden='true'></i> Registrati</a>";
+      echo "<a style='position: absolute; right: 0' href='register.php'><i class='fa fa-user-plus' aria-hidden='true'></i> Register</a>";
     }
     ?>
   </div>

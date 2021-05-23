@@ -6,8 +6,8 @@ $fiscale = $_POST["fiscale"];
 $email = $_POST["email"];
 $password = $_POST["psw"];
 
-$msgyes="Utente registrato correttamente, verrai reindirizzato alla Home.";
-$msgno="Utente già presente con questo codice fiscale, verrai reindirizzato alla pagina di Login.";
+$msgyes="User registered correctly, you will now be redirected at the Homepage!";
+$msgno="User already exists with this Tax Code, you will now be redirected at the Log-in page.";
 
 function controllo($conn_info, $query)
 {
@@ -31,12 +31,12 @@ $count = mysqli_num_rows($result);
 if ($count == 1) {
     echo "<script>
             alert('$msgno');
-            window.location= 'login.php'
+            window.location = 'login.php'
           </script>";
 } else {
     $stmt->execute();
     echo "<script>
             alert('$msgyes');
-            window.location= 'index.php'
+            window.location = 'index.php'
           </script>";
 }

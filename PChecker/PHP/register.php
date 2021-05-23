@@ -6,7 +6,7 @@ session_start();
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Registrazione</title>
+    <title>Register</title>
     <link rel="stylesheet" href="../CSS/navbar.css">
     <link rel="stylesheet" href="../CSS/forms.css">
     <link rel="stylesheet" href="../CSS/styles.css">
@@ -16,34 +16,34 @@ session_start();
 <body>
     <div class="topnav">
         <a href="index.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
-        <a href="prodotti.php"><i class="fa fa-tag" aria-hidden="true"></i> Prodotti</a>
-        <a href="contatti.php"><i class="fa fa-envelope" aria-hidden="true"></i> Contatti</a>
-        <a class="active" style="position: absolute; right: 0" href=""><i class="fa fa-user-plus" aria-hidden="true"></i> Registrati</a>
+        <a href="prodotti.php"><i class="fa fa-tag" aria-hidden="true"></i> Products</a>
+        <a href="contatti.php"><i class="fa fa-envelope" aria-hidden="true"></i> Contact me</a>
+        <a class="active" style="position: absolute; right: 0" href=""><i class="fa fa-user-plus" aria-hidden="true"></i> Register</a>
     </div>
 
     <form method="post" action="registerDB.php">
         <div class="container">
-            <h1>Registrazione</h1>
-            <p>Per favore compila tutti i campi.</p>
+            <h1>Registration</h1>
+            <p>Fill every field in please.</p>
             <hr>
 
-            <label for="nome"><b>Nome</b></label>
-            <input type="text" placeholder="Inserisci nome" name="nome" required>
+            <label for="nome"><b>Name</b></label>
+            <input type="text" placeholder="Insert surname" name="nome" required>
 
-            <label for="cognome"><b>Cognome</b></label>
-            <input type="text" placeholder="Inserisci cognome" name="cognome" required>
+            <label for="cognome"><b>Surname</b></label>
+            <input type="text" placeholder="Insert surname" name="cognome" required>
 
-            <label for="fiscale"><b>Codice Fiscale</b></label>
-            <input type="text" placeholder="Inserisci codice fiscale" name="fiscale" minlength="16" maxlength="16" required>
+            <label for="fiscale"><b>Tax Code</b></label>
+            <input type="text" placeholder="Insert your Tax Code" name="fiscale" minlength="16" maxlength="16" required>
 
             <label for="email"><b>Email</b></label>
-            <input type="email" placeholder="Inserisci Email" name="email" required>
+            <input type="email" placeholder="Insert your Email" name="email" required>
 
             <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Inserisci Password" name="psw" required>
+            <input type="password" placeholder="Insert a Password" name="psw" required>
             <hr>
 
-            <button type="submit" class="registerbtn">Registrati</button>
+            <button type="submit" class="registerbtn">Register</button>
         </div>
 
         <div class="container signin">
