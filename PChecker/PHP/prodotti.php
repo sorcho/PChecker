@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conn = mysqli_connect("localhost", "root", "", "pchecker");
+$conn = mysqli_connect("localhost", "mattiascotellaro", "", "my_mattiascotellaro");
 ?>
 <!DOCTYPE html>
 <html lang="it">

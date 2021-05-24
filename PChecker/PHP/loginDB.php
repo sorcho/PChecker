@@ -16,7 +16,7 @@ function controllo($conn_info, $query)
     }
 }
 
-$conn = mysqli_connect("localhost", "root", "", "pchecker");
+$conn = mysqli_connect("localhost", "mattiascotellaro", "", "my_mattiascotellaro");
 
 $query = "select email, password from utente where email='$email'";
 

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$conn = mysqli_connect("localhost", "root", "", "pchecker");
+$conn = mysqli_connect("localhost", "mattiascotellaro", "", "my_mattiascotellaro");
 
 $email = $_SESSION['email'];
 $fiscale = $_SESSION['fiscale'];

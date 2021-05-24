@@ -20,7 +20,7 @@ function controllo($conn_info, $query)
     }
 }
 
-$conn = mysqli_connect("localhost", "root", "", "pchecker");
+$conn = mysqli_connect("localhost", "mattiascotellaro", "", "my_mattiascotellaro");
 
 $sql = "INSERT INTO utente (nome, cognome, codice_fiscale, email, password) values (?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
