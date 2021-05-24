@@ -43,10 +43,10 @@ $fiscale = $_SESSION['fiscale'];
     <a href="contatti.php"><i class="fa fa-envelope" aria-hidden="true"></i> Contact me</a>
     <?php
     if (isset($_SESSION['email'])) {
-      if ($_SESSION['root'] == 0) {
+      if ($_SESSION['root'] == 0){
         echo "<a style='float: right;' href='utente.php'><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>
               <a style='float: right;' href='carrello.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Cart</a> ";
-      } else {
+      }else{
         echo "<a style='float: right;' href='admin.php'><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>
               <a style='float: right;' href='carrello.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Cart</a> ";
       }
@@ -84,30 +84,6 @@ $fiscale = $_SESSION['fiscale'];
   </div>
 
   <div style="float: left;">
-    <table cellspacing="0" cellpadding="0">
-      <tr>
-        <th>Address</th>
-        <th>City</th>
-        <th>Province</th>
-        <th>Postal Code</th>
-      </tr>
-
-      <?php
-      $query = "select * from spedizione where ID_Utente='$fiscale'";
-      $result = mysqli_query($conn, $query);
-      $row = mysqli_fetch_assoc($result);
-      $count = mysqli_num_rows($result);
-
-      for ($i = 0; $i < $count; $i++) {
-        echo "<tr>
-              <td><p>" . $row['indirizzo'] . "</p></td>
-              <td><p>" . $row['città'] . "</p></td>
-              <td><p>" . $row['provincia'] . "</p></td>
-              <td><p>" . $row['cap'] . "</p></td>
-            </tr>";
-      }
-      ?>
-    </table>
   </div>
 
   <div style="float: left; margin-top: 25px; margin-left: 29px;">

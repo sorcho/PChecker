@@ -40,6 +40,7 @@ if ($count == 1) {
     $_SESSION["email"] = $email;
     $_SESSION["fiscale"] = $row['codice_fiscale'];
     $_SESSION["nome"] = $row['nome'];
+    $_SESSION["root"] = $row['root'];
 
     echo "<script>
             alert('$msgyes');
