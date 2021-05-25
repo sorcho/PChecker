@@ -10,10 +10,22 @@ if (isset($_POST['IDP'])) {
   $id = $_POST['IDP'];
   $quant = 1;
 
-  $sql = "INSERT INTO carrello (ID_Utente ,ID_Prodotto, quantità) values (? ,?, ?)";
-  $stmt = $conn->prepare($sql);
-  $stmt->bind_param("sii", $fiscale, $id, $quant);
-  $stmt->execute();
+  $query = "select * from carrello where ID_Prodotto='$id' and ID_Utente='$fiscale'";
+  $result = mysqli_query($conn, $query);
+  $count = mysqli_num_rows($result);
+  $row = mysqli_fetch_assoc($result);
+
+  if ($count == 1) {
+    $quantDB = $row['quantità'];
+    $quantDB += 1;
+    $query = "UPDATE carrello SET quantità = '$quantDB' WHERE ID_Prodotto = '$id' and ID_Utente = '$fiscale'";
+    mysqli_query($conn,$query);
+  } else {
+    $sql = "INSERT INTO carrello (ID_Utente ,ID_Prodotto, quantità) values (? ,?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sii", $fiscale, $id, $quant);
+    $stmt->execute();
+  }
 }
 ?>
 
@@ -72,11 +84,11 @@ if (isset($_POST['IDP'])) {
       $rowProduct = mysqli_fetch_assoc($resultProduct);
 
       $danaro += $rowProduct['prezzo'] * $rowCart['quantità'];
-        
+
       echo "<tr>
               <td><img class='img' src=" . $rowProduct['img_dir'] . "></td>
               <td>" . $rowProduct['modello'] . "</td>
-              <td><input type='number' value=" . $rowCart['quantità'] . " min='1' max='5' style='width: 25px' /></td>
+              <td>" . $rowCart['quantità'] . "</td>
               <td><p>" . $rowProduct['prezzo'] . ".00€</p></td>
               <td><form action='rimuoviarticolo.php' method='post'><input style='width: 0;visibility: hidden;' type='text' name='id' value=" . $rowCart['ID'] . "><button title='Elimina Prodotto'><i class='fa fa-trash' aria-hidden='true'></i></button></form></td>
             </tr>";
@@ -85,7 +97,7 @@ if (isset($_POST['IDP'])) {
     }
     ?>
   </table>
-  <p style="color: white">Total: <?php echo $danaro;?>.00€</p>
+  <p style="color: white">Total: <?php echo $danaro; ?>.00€</p>
 
   <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
     <input type="hidden" name="cmd" value="_xclick">
