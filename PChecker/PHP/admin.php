@@ -87,9 +87,9 @@ $fiscale = $_SESSION['fiscale'];
   </div>
 
   <div style="float: left; margin-top: 25px; margin-left: 4px;">
-    <button><i class="fa fa-plus" aria-hidden="true"></i> Aggiungi prodotto</button>   
-    <button><i class="fa fa-money" aria-hidden="true"></i> Modifica prezzo</button>    
-    <button><i class="fa fa-list" aria-hidden="true"></i> Controlla ordini</button>
+    <button onclick="window.location.href='aggiungi.php'"><i class="fa fa-plus" aria-hidden="true"></i> Add product</button>   
+    <button onclick="window.location.href='modifica.php'"><i class="fa fa-money" aria-hidden="true"></i> Modify price</button>    
+    <button onclick="window.location.href='controlla.php'"><i class="fa fa-list" aria-hidden="true"></i> Check orders</button>
   </div>
 
   <div style="float: left; margin-top: 25px; margin-left: 4px;">
