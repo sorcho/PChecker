@@ -68,10 +68,10 @@ function is_decimal($val)
                   </div>
                   <div class='product-content'>
                     <h3 style='color: white'>" . $row['modello'] . "</h3>" .
-                    $decimal
-                    . "<p class='product-text genre'>" . $row['tipologia'] . "</p>" .
-                    $btn
-                    . "<input style='visibility: hidden;' value=" . $row['ID'] . " type='text' name='IDP'>
+      $decimal
+      . "<p class='product-text genre'>" . $row['tipologia'] . "</p>" .
+      $btn
+      . "<input style='visibility: hidden;' value=" . $row['ID'] . " type='text' name='IDP'>
                   </div>
                 </div>
               </div>
