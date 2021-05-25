@@ -95,17 +95,17 @@ session_start();
       if (isset($_SESSION['email'])) {
         echo "<input type='email' readonly name='email' value=" . $_SESSION['email'] . ">";
       } else {
-        echo "<input type='email' name='email' placeholder='Email'/>";
+        echo "<input type='email' name='email' placeholder='Email' required/>";
       }
       ?>
-      <input class="ogg" type="text" name="oggetto" placeholder="Email Object" />
+      <input class="ogg" type="text" name="oggetto" placeholder="Email Object" required/>
     </div>
     <div style="float: left; width: 48.5%;">
       <p>Welcome in the Support Zone! In this page you can send an assistance ticket directly to me, the founder! <br>
         If you are already logged-in, the email will be already there and you will not have the possibility to change it. <br>
         Otherwise, you will have to insert the email manually, so be careful, you could not receive any answer.</p>
     </div>
-    <textarea name="contenuto" cols="30" rows="10" placeholder="Message"></textarea>
+    <textarea name="contenuto" cols="30" rows="10" placeholder="Message" required></textarea>
     <center><button type="submit" value="Invia ticket"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button></center>
   </form>
 

@@ -37,11 +37,16 @@ $conn = mysqli_connect("localhost", "mattiascotellaro", "", "my_mattiascotellaro
   </div>
 
   <?php
+  $btn = "";
+  
   $query = "select * from prodotti";
   $result = mysqli_query($conn, $query);
   $row = mysqli_fetch_assoc($result);
   $count = mysqli_num_rows($result);
 
+  if(isset($_SESSION['email'])){
+  	$btn = "<button type='submit'><i class='fa fa-cart-plus' aria-hidden='true'></i></button>";
+  }
   for ($i = 0; $i < $count; $i++) {
     echo "<form action='carrello.php' method='post'>
               <div class='products products-table'>
@@ -52,9 +57,9 @@ $conn = mysqli_connect("localhost", "mattiascotellaro", "", "my_mattiascotellaro
                   <div class='product-content'>
                     <h3 style='color: white'>" . $row['modello'] . "</h3>
                     <p class='product-text price'>" . $row['prezzo'] . ".00€</p>
-                    <p class='product-text genre'>" . $row['tipologia'] . "</p>
-                    <button type='submit'><i class='fa fa-cart-plus' aria-hidden='true'></i></button>
-                    <input style='visibility: hidden;' value=" . $row['ID'] . " type='text' name='IDP'>
+                    <p class='product-text genre'>" . $row['tipologia'] . "</p>" .
+                    $btn
+                    . "<input style='visibility: hidden;' value=" . $row['ID'] . " type='text' name='IDP'>
                   </div>
                 </div>
               </div>

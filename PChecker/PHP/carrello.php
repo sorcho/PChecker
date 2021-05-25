@@ -26,7 +26,6 @@ if (isset($_POST['IDP'])) {
   <link rel="stylesheet" href="../CSS/navbar.css" />
   <link rel="stylesheet" href="../CSS/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <script src="../JS/script.js"></script>
   <title>Cart</title>
 </head>
 
@@ -39,10 +38,10 @@ if (isset($_POST['IDP'])) {
     if (isset($_SESSION['email'])) {
       if ($_SESSION['root'] == 0) {
         echo "<a style='float: right;' href='utente.php'><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>
-              <a style='float: right;' href='carrello.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Cart</a> ";
+              <a class='active' style='float: right;' href='carrello.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Cart</a> ";
       } else {
         echo "<a style='float: right;' href='admin.php'><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>
-              <a style='float: right;' href='carrello.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Cart</a> ";
+              <a class='active' style='float: right;' href='carrello.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Cart</a> ";
       }
     } else {
       echo "<a style='position: absolute; right: 0' href='register.php'><i class='fa fa-user-plus' aria-hidden='true'></i> Register</a>";
@@ -73,7 +72,7 @@ if (isset($_POST['IDP'])) {
       $rowProduct = mysqli_fetch_assoc($resultProduct);
 
       $danaro += $rowProduct['prezzo'] * $rowCart['quantità'];
-
+        
       echo "<tr>
               <td><img class='img' src=" . $rowProduct['img_dir'] . "></td>
               <td>" . $rowProduct['modello'] . "</td>
@@ -83,13 +82,10 @@ if (isset($_POST['IDP'])) {
             </tr>";
 
       $rowCart = mysqli_fetch_assoc($resultCart);
-      $rowProduct = mysqli_fetch_assoc($resultProduct);
-
-      header("Location prodotti.php");
     }
     ?>
   </table>
-  <p style="color: white">Total: <?php echo $danaro; ?>.00€</p>
+  <p style="color: white">Total: <?php echo $danaro;?>.00€</p>
 
   <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
     <input type="hidden" name="cmd" value="_xclick">

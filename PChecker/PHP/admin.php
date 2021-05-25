@@ -47,7 +47,7 @@ $fiscale = $_SESSION['fiscale'];
         echo "<a style='float: right;' href='utente.php'><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>
               <a style='float: right;' href='carrello.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Cart</a> ";
       }else{
-        echo "<a style='float: right;' href='admin.php'><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>
+        echo "<a class='active' style='float: right;' href='admin.php'><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>
               <a style='float: right;' href='carrello.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Cart</a> ";
       }
     } else {
@@ -86,14 +86,10 @@ $fiscale = $_SESSION['fiscale'];
   <div style="float: left;">
   </div>
 
-  <div style="float: left; margin-top: 25px; margin-left: 29px;">
-    <form action="aggiornaSpedizione.php">
-      <?php
-      if (!isset($row['indirizzo']) && !isset($row['città']) && !isset($row['provincia']) && !isset($row['cap'])) {
-        echo "<button type='submit'><i class='fa fa-truck' aria-hidden='true'></i> Update Shipping Info</button>";
-      }
-      ?>
-    </form>
+  <div style="float: left; margin-top: 25px; margin-left: 4px;">
+    <button><i class="fa fa-plus" aria-hidden="true"></i> Aggiungi prodotto</button>   
+    <button><i class="fa fa-money" aria-hidden="true"></i> Modifica prezzo</button>    
+    <button><i class="fa fa-list" aria-hidden="true"></i> Controlla ordini</button>
   </div>
 
   <div style="float: left; margin-top: 25px; margin-left: 4px;">

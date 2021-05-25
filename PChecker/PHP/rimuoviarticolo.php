@@ -14,7 +14,6 @@ $id = $_POST['id'];
 
 $query = "select * FROM `carrello` WHERE `carrello`.`ID` = $id";
 $result = mysqli_query($conn, $query);
-$row = mysqli_fetch_assoc($result);
 $count = mysqli_num_rows($result);
 
 if ($count == 1) {

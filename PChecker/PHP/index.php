@@ -32,17 +32,17 @@ session_start();
     }
     ?>
   </div>
-
+	
   <center>
-    <img src="../IMG/logo.png" alt="logo">
+  	<img src="../IMG/logo.png" alt="logo">
   </center>
 
   <div style="float: left; color: white; font-size: 35px;">
     <p>PChecker is a website that allows every user to buy Hardware for their PC in an easy and intuitive way!<br>
-      You just have to register your user on the apposite Register tab, then Log-in and the job is done!<br>
-      PChecker borns from my passion for the PC world and Computer Science in general, this way I can merge my passions together.<br>
-      I thought that someone new can discover this website but may not know anything about these topic, so a good idea would be watching some
-      very good videos, the first will taught you how to build your own PC, the second will teach you something about coding in general.</p>
+       You just have to register your user on the apposite Register tab, then Log-in and the job is done!<br>
+       PChecker borns from my passion for the PC world and Computer Science in general, this way I can merge my passions together.<br>
+       I thought that someone new can discover this website but may not know anything about these topic, so a good idea would be watching some
+       very good videos, the first will teach you how to build your own PC, the second will teach you something about coding in general.</p>
   </div>
   <iframe width="750" height="500" style="margin-left: 20px ;float: left;" src="https://www.youtube.com/embed/v7MYOpFONCU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   <iframe width="750" height="500" style="margin-right: 20px ;float: right;" src="https://www.youtube.com/embed/RRubcjpTkks" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

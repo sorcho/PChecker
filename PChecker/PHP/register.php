@@ -28,7 +28,7 @@ session_start();
             <hr>
 
             <label for="nome"><b>Name</b></label>
-            <input type="text" placeholder="Insert surname" name="nome" required>
+            <input type="text" placeholder="Insert name" name="nome" required>
 
             <label for="cognome"><b>Surname</b></label>
             <input type="text" placeholder="Insert surname" name="cognome" required>
