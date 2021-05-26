@@ -109,7 +109,7 @@ session_start();
     <center><button type="submit" value="Invia ticket"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button></center>
   </form>
 
-  <div class="footer">
+  <div style="position: fixed;" class="footer">
     <div>
       <img class="logo" src="../IMG/logo.png" alt="PChecker" />
       <span style="visibility: hidden; vertical-align: middle">l</span>

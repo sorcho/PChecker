@@ -51,7 +51,7 @@ session_start();
         </div>
     </form>
 
-    <div class="footer">
+    <div style="position: fixed;" class="footer">
     <div>
       <img class="logo" src="../IMG/logo.png" alt="PChecker">
       <span style="visibility: hidden;vertical-align: middle;">l</span>

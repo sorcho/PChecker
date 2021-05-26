@@ -126,7 +126,7 @@ if (isset($_POST['IDP'])) {
     <img alt="" border="0" src="https://www.paypalobjects.com/it_IT/i/scr/pixel.gif" width="1" height="1">
   </form>
 
-  <div class="footer">
+  <div style="position: fixed;" class="footer">
     <div>
       <img class="logo" src="../IMG/logo.png" alt="PChecker">
       <span style="visibility: hidden;vertical-align: middle;">l</span>
