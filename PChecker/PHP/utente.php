@@ -111,13 +111,19 @@ $fiscale = $_SESSION['fiscale'];
   </div>
 
   <div style="float: left; margin-top: 25px; margin-left: 29px;">
-    <form action="aggiornaSpedizione.php">
+    
       <?php
       if (!isset($row['indirizzo']) && !isset($row['città']) && !isset($row['provincia']) && !isset($row['cap'])) {
-        echo "<button type='submit'><i class='fa fa-truck' aria-hidden='true'></i> Update Shipping Info</button>";
+        echo "<form action='aggiornaSpedizione.php'>
+                <button type='submit'><i class='fa fa-truck' aria-hidden='true'></i> Update Shipping Info</button>
+              </form>";
+      }else{
+        echo "<form action='eliminaSpedizione.php'>
+                <button type='submit'><i class='fa fa-trash' aria-hidden='true'></i> Delete Shipping Info</button>
+              </form>";
       }
       ?>
-    </form>
+    
   </div>
 
   <div style="float: left; margin-top: 25px; margin-left: 4px;">
