@@ -30,13 +30,13 @@ function is_decimal($val)
   <link rel="stylesheet" href="../CSS/prodotti.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <script src="../JS/script.js"></script>
-  <title>Products</title>
+  <title>Modify Products</title>
 </head>
 
 <body>
   <div class="topnav">
     <a href="index.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
-    <a class="active" href=""><i class="fa fa-tag" aria-hidden="true"></i> Products</a>
+    <a href="prodotti.php"><i class="fa fa-tag" aria-hidden="true"></i> Products</a>
     <a href="contatti.php"><i class="fa fa-envelope" aria-hidden="true"></i> Contact me</a>
     <?php
     if (isset($_SESSION['email'])) {
@@ -44,7 +44,7 @@ function is_decimal($val)
         echo "<a style='float: right;' href='utente.php'><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>
               <a style='float: right;' href='carrello.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Cart</a> ";
       } else {
-        echo "<a style='float: right;' href='admin.php'><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>
+        echo "<a class='active' style='float: right;' href='admin.php'><i class='fa fa-user' aria-hidden='true'></i> " .  $_SESSION['nome'] . "</a>
               <a style='float: right;' href='carrello.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i> Cart</a> ";
       }
     } else {
