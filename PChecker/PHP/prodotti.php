@@ -1,14 +1,26 @@
 <?php
 session_start();
 $conn = mysqli_connect("localhost", "mattiascotellaro", "", "my_mattiascotellaro");
-
 function is_decimal($val)
 {
-  return is_numeric($val) && floor($val) != $val;
+    return is_numeric($val) && floor($val) != $val;
 }
 ?>
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" style="margin: 0; padding: 0; height: 100%;">
+
+<style>
+.footer,
+#push{
+height: 100px;
+}
+.container{
+min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -100px; 
+}
+</style>
 
 <head>
   <meta charset="UTF-8" />
@@ -21,7 +33,7 @@ function is_decimal($val)
   <title>Products</title>
 </head>
 
-<body>
+<body style="margin: 0; padding: 0; height: 100%;">
   <div class="topnav">
     <a href="index.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
     <a class="active" href=""><i class="fa fa-tag" aria-hidden="true"></i> Products</a>
@@ -41,46 +53,59 @@ function is_decimal($val)
     ?>
   </div>
 
-  <?php
-  $btn = "";
+  <div class="filtri">
+    <select name="filtro" id="filtro" onchange="filtro(this.value)">
+      <option value="blank">---</option>
+      <?php
+        $query = "select distinct tipologia from prodotti";
+        $result = mysqli_query($conn, $query);
+        while($row = mysqli_fetch_assoc($result)){
+          echo "<option value=" . $row['tipologia'] . ">" . $row['tipologia'] . "</option>";
+        }
+      ?>
+    </select>
+  </div>
+<div class="container">
+  <div id="stampaFiltrata">
+        <?php
+            $btn = "";
 
-  $query = "select * from prodotti";
-  $result = mysqli_query($conn, $query);
-  $row = mysqli_fetch_assoc($result);
-  $count = mysqli_num_rows($result);
-
-  if (isset($_SESSION['email'])) {
-    $btn = "<button type='submit'><i class='fa fa-cart-plus' aria-hidden='true'></i></button>";
-  }
-
-  for ($i = 0; $i < $count; $i++) {
-    $decimal = "<p class='product-text price'>" . $row['prezzo'] . ".00€</p>";
-
-    if (is_decimal($row['prezzo'])) {
-      $decimal = "<p class='product-text price'>" . $row['prezzo'] . "€</p>";
-    }
-
-    echo "<form action='carrello.php' method='post'>
-              <div class='products products-table'>
-                <div class='product'>
-                  <div class='product-img'>
-                    <img src=" . $row['img_dir'] . " />
-                  </div>
-                  <div class='product-content'>
-                    <h3 style='color: white'>" . $row['modello'] . "</h3>" .
-      $decimal
-      . "<p class='product-text genre'>" . $row['tipologia'] . "</p>" .
-      $btn
-      . "<input style='visibility: hidden;' value=" . $row['ID'] . " type='text' name='IDP'>
-                  </div>
-                </div>
-              </div>
-            </form>";
-
-    $row = mysqli_fetch_assoc($result);
-  }
-  ?>
-
+            $query = "select * from prodotti";
+            $result = mysqli_query($conn, $query);
+            $count = mysqli_num_rows($result);
+        
+            if (isset($_SESSION['email'])) {
+                $btn = "<button type='submit'><i class='fa fa-cart-plus' aria-hidden='true'></i></button>";
+            }
+        
+            while ($row = mysqli_fetch_assoc($result)) {
+                $decimal = "<p class='product-text price'>" . $row['prezzo'] . ".00€</p>";
+        
+                if (is_decimal($row['prezzo'])) {
+                    $decimal = "<p class='product-text price'>" . $row['prezzo'] . "€</p>";
+                }
+        
+                echo "<form action='carrello.php' method='post'>
+                        <div class='products products-table'>
+                          <div class='product'>
+                            <div class='product-img'>
+                              <img src=" . $row['img_dir'] . " />
+                            </div>
+                            <div class='product-content'>
+                              <h3 style='color: white'>" . $row['modello'] . "</h3>" .
+                    $decimal
+                    . "<p class='product-text genre'>" . $row['tipologia'] . "</p>" .
+                    $btn
+                    . "<input style='visibility: hidden;' value=" . $row['ID'] . " type='text' name='IDP'>
+                            </div>
+                          </div>
+                        </div>
+                      </form>";
+            }
+        ?>
+        <div id="push"> </div>
+  </div>
+  </div>
   <div class="footer">
     <div>
       <img class="logo" src="../IMG/logo.png" alt="PChecker">

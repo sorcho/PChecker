@@ -27,13 +27,12 @@ td {
   background-color: #333;
   color: white;
   font-family: "Raleway", sans-serif;
-  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   color: white;
-  display: flex;
   justify-content: space-between;
+  display: flex;
 }
 .logo{
     width: 205px;
@@ -45,10 +44,22 @@ td {
     padding-right: 350px;
     margin-top: -10px;
 }
-.errore{
-  height: 500px;
-  width: 500px;
-  background-color: #333;
-  margin: auto;
-  border-radius: 50px;
+select,
+option {
+  margin-top: 5px;
+  background-color: #333333;
+  color: white;
+  position: fixed;
+  right: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+::-webkit-scrollbar{
+    width: 10px;
+    background-color: #f1f1f1;
+}
+  
+::-webkit-scrollbar-thumb{
+    background-color: #04aa6d;
 }
